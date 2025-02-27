@@ -1,0 +1,70 @@
+# https://golangci-lint.run/usage/configuration/
+run:
+  exclude:
+    - vendor
+  timeout: 5m
+
+linters-settings:
+  govet:
+    check-shadowing: true
+
+  goconst:
+    min-len: 3
+    min-occurrences: 3 #
+
+  gocyclo:
+    min-complexity: 10
+
+  gofmt:
+    simplify: true
+
+  errcheck:
+    excluded-functions:
+      - fmt.Println
+      - fmt.Printf
+
+  revive:
+    ignore-generated-header: true
+
+  dupl:
+    threshold: 100
+
+linters:
+  enable:
+    - govet
+    - errcheck
+    - goconst
+    - gofmt
+    - gocyclo
+    - goimports
+    - ineffassign
+    - staticcheck
+    - structcheck
+    - typecheck
+    - unused
+    - varcheck
+    - dupl
+    - revive
+  disable:
+    - nakedret
+
+issues:
+  exclude-rules:
+    - linters:
+        - errcheck
+      text: "fmt.*"
+
+  exclude:
+    - "Generated code"
+    - "Deprecated"
+
+  max-issues-per-linter: 0
+  max-same-issues: 3
+
+output:
+  format: colored-line-number
+  color: always
+  print-issued-lines: true
+
+gofmt:
+  simplify: true
