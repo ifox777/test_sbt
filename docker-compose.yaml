@@ -1,0 +1,7 @@
+services:
+  testapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - HELM_DRIVER=secret

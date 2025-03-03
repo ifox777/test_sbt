@@ -1,0 +1,17 @@
+=== Symbol Results ===
+
+Vulnerability #1: GO-2024-2576
+    registry-support: decompress can delete files outside scope via relative
+    paths in github.com/devfile/registry-support/registry-library
+  More info: https://pkg.go.dev/vuln/GO-2024-2576
+  Module: github.com/devfile/registry-support/registry-library
+    Found in: github.com/devfile/registry-support/registry-library@v0.0.0-20250121094327-a43b145b50f6
+    Fixed in: N/A
+    Example traces found:
+      #1: main.go:5:2: TestTask.init calls generator.init, which eventually calls library.init
+
+Your code is affected by 1 vulnerability from 1 module.
+This scan also found 1 vulnerability in packages you import and 0
+vulnerabilities in modules you require, but your code doesn't appear to call
+these vulnerabilities.
+Use '-show verbose' for more details.
